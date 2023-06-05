@@ -1,6 +1,17 @@
- const Index = () => {
+import { CreatePost } from "../components/CreatePost";
+import { Container } from "../components/Container";
+import { NavBar } from "../components/NavBar";
+import { Posts } from "../components/Posts";
+
+const Home = () => {
   return (
-    <div>index</div>
-  )
-}
-export default Index;
+    <>
+      <NavBar />
+      <Container>
+        <CreatePost />
+        <Posts />
+      </Container>
+    </>
+  );
+};
+export default Home;
