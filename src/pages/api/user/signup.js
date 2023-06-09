@@ -1,7 +1,7 @@
-import { createRouter } from "next-connect";
 import { signupUser } from "../../../../modules/user/user.service";
 import validate from "../../../../lib/middleware/validation";
 import Joi from "joi";
+import createHandler from "../../../../lib/middleware/nextConnect";
 
 const postSchema = Joi.object({
   firstName: Joi.string().required().max(50),
@@ -11,11 +11,15 @@ const postSchema = Joi.object({
   password: Joi.string().required().max(30).min(6),
 });
 
-const signup = createRouter();
+const signup = createHandler();
 
-signup.post(validate({ body: postSchema }), (req, res) => {
-  signupUser(req.body);
-  res.status(200).json({ teste: "Ok" });
+signup.post(validate({ body: postSchema }), async (req, res) => {
+  try {
+    const user = await signupUser(req.body);
+    res.status(201).json(user);
+  } catch (error) {
+    throw error;
+  }
 });
 
 export default signup.handler();
