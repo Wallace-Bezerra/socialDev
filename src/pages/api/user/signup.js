@@ -17,8 +17,9 @@ signup.post(validate({ body: postSchema }), async (req, res) => {
   try {
     const user = await signupUser(req.body);
     res.status(201).json(user);
-  } catch (error) {
-    throw error;
+  } catch (err) {
+    console.log(err);
+    return res.send({ error: err.message });
   }
 });
 

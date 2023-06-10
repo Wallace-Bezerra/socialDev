@@ -1,4 +1,4 @@
-import { hashPassword } from "../../utils/bcrypt";
+import { comparePassword, hashPassword } from "../../utils/bcrypt";
 import User from "./user.model";
 export const signupUser = async (body) => {
   try {
@@ -8,6 +8,19 @@ export const signupUser = async (body) => {
     };
     const dbUser = await User.create(user);
     return dbUser;
+  } catch (err) {
+    throw err;
+  }
+};
+export const loginUser = async (body) => {
+  try {
+    const user = await User.findOne({
+      $or: [{ email: body.userOrEmail }, { user: body.userOrEmail }],
+    });
+    if (!user) throw new Error("Usuário não encontrado");
+    const passwordIsCorrect = comparePassword(body.password, user.password);
+    if (!passwordIsCorrect) throw new Error("Senha incorreta");
+    return user;
   } catch (error) {
     throw error;
   }
