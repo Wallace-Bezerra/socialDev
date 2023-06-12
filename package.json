@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "bcryptjs": "^2.4.3",
     "iron-session": "^6.3.1",
     "joi": "^17.9.2",
@@ -20,6 +21,7 @@
     "next-joi": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.44.3",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {

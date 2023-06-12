@@ -1,10 +1,29 @@
-import { InputContainer } from "./styles";
+import { Error, InputContainer } from "./styles";
 
-export const Input = ({ label, type, placeholder }) => {
+const errorsType = {
+  "string.empty": "Esse campo é obrigatório.",
+  "string.email": "Por favor, insira um email válido.",
+  "string.min": "A senha deve conter pelo menos 6 caracteres.",
+};
+export const Input = ({
+  label,
+  name,
+  type,
+  placeholder,
+  register,
+  required,
+  error,
+}) => {
+
   return (
-    <InputContainer>
+    <InputContainer error={error?.message}>
       {label}
-      <input type={type} placeholder={placeholder} />
+      <input
+        type={type}
+        placeholder={placeholder}
+        {...register(name, { required })}
+      />
+      {error && <Error>{errorsType[error.type] || error.message}</Error>}
     </InputContainer>
   );
 };

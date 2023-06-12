@@ -30,15 +30,15 @@ export const FormContainer = styled.form`
     font-size: 50px;
     line-height: 59px;
   }
-  span {
-    text-align: center;
-    font-size: 22px;
-    line-height: 26px;
-    font-weight: 400;
-    a {
-      font-weight: 700;
-      color: #8933cd;
-    }
+`;
+export const AccountAcces = styled.span`
+  text-align: center;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  a {
+    font-weight: 700;
+    color: #8933cd;
   }
 `;
 export const WrapperInputs = styled.div`
