@@ -6,6 +6,9 @@ export const Container = styled.div`
   gap: 91px;
   flex-direction: column;
   background-color: ${({ theme }) => theme.white};
+  @media (max-width: 600px) {
+    padding-inline: 25px;
+  }
 `;
 export const TextContainer = styled.div`
   h1 {

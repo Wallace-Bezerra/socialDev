@@ -34,4 +34,7 @@ export const StyledContainer = styled.div`
     content: "";
     margin: auto;
   }
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `;

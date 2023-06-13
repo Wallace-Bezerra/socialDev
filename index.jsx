@@ -5,35 +5,17 @@ import * as S from "./styles";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { signupSchema } from "../../../modules/user/userSchema";
-import { useRouter } from "next/router";
-import { api } from "../../../utils/api";
 
 export const Signup = () => {
   const {
     handleSubmit,
     register,
     formState: { errors },
-    setError,
   } = useForm({ resolver: joiResolver(signupSchema) });
-  const router = useRouter();
-
-  const onSubmit = async (data) => {
+  console.log(errors);
+  const onSubmit = (data) => {
     console.log(data);
-    try {
-      const { status } = await api.post("/api/user/signup", data);
-      if (status === 201) {
-        router.push("/");
-      }
-    } catch (error) {
-      const { code, duplicateKey } = error.response.data;
-      if (code == 11000) {
-        setError(duplicateKey, {
-          type: `duplicated.${duplicateKey}`,
-        });
-      }
-    }
   };
-
   return (
     <S.Container>
       <S.TextContainer>

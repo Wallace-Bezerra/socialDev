@@ -20,6 +20,12 @@ signup.post(validate({ body: signupSchema }), async (req, res) => {
     res.status(201).json({ ok: true });
   } catch (err) {
     console.log(err);
+    if (err.code === 11000) {
+      return res.status(404).send({
+        code: 11000,
+        duplicateKey: Object.keys(err.keyPattern)[0],
+      });
+    }
     return res.send({ error: err.message });
   }
 });
