@@ -1,10 +1,10 @@
 import { Button } from "../Button";
 import * as S from "./styles";
 
-export const CreatePost = () => {
+export const CreatePost = ({ user }) => {
   return (
     <S.FormContainer>
-      <h2>No que você está pensando, @josefortes?</h2>
+      <h2>No que você está pensando, @{user}?</h2>
       <S.InputTextArea
         placeholder="Digite sua mensagem"
         rows="4"

@@ -5,6 +5,9 @@ export const Container = styled.div`
   display: flex;
   gap: 91px;
   flex-direction: column;
+  @media (max-width: 600px) {
+    padding-inline: 25px;
+  }
 `;
 export const TextContainer = styled.div`
   h1 {
@@ -19,6 +22,7 @@ export const TextContainer = styled.div`
     line-height: 30px;
   }
 `;
+
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -29,15 +33,15 @@ export const FormContainer = styled.form`
     font-size: 50px;
     line-height: 59px;
   }
-  span {
-    text-align: center;
-    font-size: 22px;
-    line-height: 26px;
-    font-weight: 400;
-    a {
-      font-weight: 700;
-      color: #8933cd;
-    }
+`;
+export const AccountAcces = styled.span`
+  text-align: center;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  a {
+    font-weight: 700;
+    color: #8933cd;
   }
 `;
 export const WrapperInputs = styled.div`

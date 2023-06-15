@@ -24,3 +24,14 @@ export const signupSchema = Joi.object({
     .message("A senha pode ter no máximo {{#limit}} caracteres. ")
     .min(6),
 });
+export const loginSchema = Joi.object({
+  userOrEmail: Joi.string()
+    .required()
+    .max(100)
+    .message("Esse campo pode ter no máximo {{#limit}} caracteres. "),
+  password: Joi.string()
+    .required()
+    .max(30)
+    .message("A senha pode ter no máximo {{#limit}} caracteres. ")
+    .min(6),
+});

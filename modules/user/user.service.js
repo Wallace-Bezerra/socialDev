@@ -17,9 +17,9 @@ export const loginUser = async (body) => {
     const user = await User.findOne({
       $or: [{ email: body.userOrEmail }, { user: body.userOrEmail }],
     });
-    if (!user) throw new Error("Usuário não encontrado");
+    if (!user) throw new Error("User not found");
     const passwordIsCorrect = comparePassword(body.password, user.password);
-    if (!passwordIsCorrect) throw new Error("Senha incorreta");
+    if (!passwordIsCorrect) throw new Error("incorrect password");
     return user;
   } catch (error) {
     throw error;
