@@ -12,9 +12,12 @@ const showButtonOn = keyframes`
 `;
 
 export const Button = styled.button`
-  background: ${({ theme }) => theme.primary};
-  color: #fff;
-  border: none;
+  background: ${({ theme, variants }) =>
+    variants === "primary" ? theme.primary : theme.white};
+  color: ${({ theme, variants }) =>
+    variants === "primary" ? theme.white : theme.primary};
+  border: ${({ theme, variants }) =>
+    variants === "primary" ? "none" : `2px solid ${theme.primary} `};
   font-weight: 700;
   font-size: 22px;
   line-height: 26px;
@@ -33,5 +36,11 @@ export const Button = styled.button`
   transition: opacity 0.4s;
   &:hover {
     opacity: 0.9;
+    ${({ variants, theme }) =>
+      variants !== "primary"
+        ? css`
+            background-color: #f1f1f1;
+          `
+        : ""}
   }
 `;

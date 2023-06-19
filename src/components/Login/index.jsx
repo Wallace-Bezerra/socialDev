@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as S from "./styles";
-import { Button } from "../Button/styles";
+import { Button } from "../Button/index";
 import { Input } from "../Input";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "../../../modules/user/userSchema";
@@ -65,7 +65,11 @@ export const Login = () => {
             name="password"
             error={errors.password}
           />
-          <Button disabled={Object.entries(errors).length > 0} error={errors}>
+          <Button
+            disabled={Object.entries(errors).length > 0}
+            variants="primary"
+            error={errors}
+          >
             Entrar
           </Button>
           <S.AccountAcces>

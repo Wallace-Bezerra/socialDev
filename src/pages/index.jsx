@@ -11,7 +11,7 @@ const Home = ({ user }) => {
       <NavBar />
       <Container>
         <CreatePost user={user.user} />
-        <Posts />
+        <Posts user={user} />
       </Container>
     </>
   );

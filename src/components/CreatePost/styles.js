@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const FormContainer = styled.form`
+export const FormContainer = styled(motion.form)`
   background-color: ${({ theme }) => theme.white};
   padding: 30px 40px;
   border-radius: 10px;
@@ -60,4 +61,9 @@ export const WrapperButton = styled.div`
       align-self: flex-end;
     }
   }
+`;
+export const ErrorTextArea = styled.span`
+  color: red;
+  padding-bottom: 20px;
+  display: inline-block;
 `;

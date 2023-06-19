@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "../Button/styles";
+import { Button } from "../Button/index";
 import { Input } from "../Input";
 import * as S from "./styles";
 import { useForm } from "react-hook-form";
@@ -87,7 +87,11 @@ export const Signup = () => {
             error={errors.password}
           />
         </S.WrapperInputs>
-        <Button disabled={Object.entries(errors).length > 0} error={errors}>
+        <Button
+          disabled={Object.entries(errors).length > 0}
+          variants="primary"
+          error={errors}
+        >
           Criar conta
         </Button>
         <S.AccountAcces>

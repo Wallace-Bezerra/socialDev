@@ -14,3 +14,19 @@ export const getPosts = async (limit = 10) => {
     .sort({ createdDate: -1 })
     .limit(limit);
 };
+export const deletePost = async (id, user) => {
+  return await Post.findOneAndDelete({
+    _id: id,
+    createdBy: user.id,
+  });
+};
+
+export const updatePost = async (body, id) => {
+  return await Post.findOneAndUpdate(
+    {
+      _id: id,
+    },
+    { text: body.text },
+    { new: true }
+  );
+};
